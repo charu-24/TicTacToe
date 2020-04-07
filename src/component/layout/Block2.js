@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function Block2() {
     return (
-        <div className="blockStyle">
+        <div className="block2Style">
             <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
             <form>
                 <input type="text" placeholder="Name" style={nameStyle}/>
                 
-               <select id="gender" name="genders" placeholder="Gender" style={optionStyle}>
-                   <option style={optionStyle} value="female">Female</option>
+               <select id="gender" name="genders" placeholder="Gender" className="optionStyle">
+                   <option className="optionStyle" value="female">Female</option>
                    <option value="male">
                        Male
                    </option>

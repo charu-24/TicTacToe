@@ -7,8 +7,7 @@ import Block1 from './component/layout/Block1'
 import Block2 from './component/layout/Block2'
 import Lets from './component/layout/Lets';
 import Decider from './component/pages/Decider'
-import Img1 from './component/layout/Img1';
-import Img2 from './component/layout/Img2';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './App.css';
 
 function App() {
@@ -27,12 +26,7 @@ function App() {
         <Lets />
         </React.Fragment>
       )} />
-      <Route exact path="/about" component={Decider} render={props => (
-        <React.Fragment>
-          <Img1 />
-          <Img2 />
-        </React.Fragment>
-      )} />
+      <Route exact path="/about" component={Decider}  />
     </div>
     </Router>
   );

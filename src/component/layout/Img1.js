@@ -4,6 +4,11 @@ export default function Img1() {
     return (
         <div className="Img1Style">
             <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 1</h1>
+            
+            
+                 <div style={fontStyle}><i className="fa fa-user"></i></div>
+            
+            
             <form>
                 <input type="text" placeholder="Name" className="inputStyle"/>
                 
@@ -15,7 +20,7 @@ export default function Img1() {
 }
 
 const nameStyle ={
-    marginTop: "20%",
+    marginTop: "10%",
     marginLeft: "5%",
     fontSize: "1.09em",
     backgroundColor: "rgba(10,10,10,0.5)",
@@ -38,7 +43,7 @@ const optionStyle = {
     color:"black"
 }
 const buttonStyle = {
-    marginTop:"20%",
+    marginTop:"10%",
     marginLeft: "35%",
     width : "80px",
     height : "30px",
@@ -49,4 +54,10 @@ const buttonStyle = {
     borderRadius: "10px",
     color: " #1c77ac"
 
+}
+const fontStyle ={
+    fontSize: "10em",
+    textAlign:"center",
+    marginTop:"-25%",
+    
 }

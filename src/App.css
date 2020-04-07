@@ -20,13 +20,28 @@ body{
   padding: 10px;
   border-radius: 0px 0px 30px 30px;
 }
-.blockStyle{
+.block1Style{
   background-color: #ffa800;
   width : 250px;
   height: 300px;
   float: left;
   margin-left: 20%;
+  margin-right: 5%;
   margin-top: 8%;
+  border-color: #0f2862;
+  box-shadow: 1px 5px 10px 	black;
+  border-radius: 20px;
+  z-index: 1;
+  
+}
+.block2Style{
+  background-color: #ffa800;
+  width : 250px;
+  height: 300px;
+  float: left;
+  margin-left: 10%;
+  margin-top: 8%;
+  
   border-color: #0f2862;
   box-shadow: 1px 5px 10px 	black;
   border-radius: 20px;
@@ -69,7 +84,21 @@ body{
   
 }
 .inputStyle{
-  margin-top: 20%;
+  margin-top: -10%;
+  margin-left: 31%;
+  font-size: 1.09em;
+  background-color: rgba(10,10,10,0.5);
+  border: 2px solid black;
+  box-shadow:1px 2px 5px #0f2862;
+  height: 30px;
+  color:black;
+  width: 80px
+
+}
+.optionStyle{
+  margin-top: 10%;
+  width: 220px;
+
   margin-left: 5%;
   font-size: 1.09em;
   background-color: rgba(10,10,10,0.5);
@@ -77,8 +106,16 @@ body{
   box-shadow:1px 2px 5px #0f2862;
   height: 30px;
   color:black;
-  width: 100px
-
+}
+.letButton{
+  width:150px;
+  padding: 10px;
+  margin-left:-10%;
+  background-color:#0f2862; border-color:black;
+  box-shadow:2px 5px 6px black;
+  border-radius:30px;
+  color:#ffa800;
+  font-style:bold;
 }
 @media screen and (max-width: 700px)
 {
@@ -94,7 +131,13 @@ body{
    width:46%;
    height: 250px;
   }
-
+  .block2Style{
+    margin-left: 15%;
+  }
+  .letButton{
+    margin-top:40px;
+    margin-left: -6%
+  }
   .inputStyle{
     margin-left: 20%;
     margin-top: 20%;
@@ -102,7 +145,7 @@ body{
   }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1200px){
   .Img1Style{
     width: 40%;
     margin-left: 5%;
@@ -115,5 +158,11 @@ body{
    width:40%;
    height: 250px;
   }
-
+  .block1Style{
+    margin-left: 15%;
+    float : left;
+  }
+  .letButton{
+    margin-left: -35%
+  }
 }
