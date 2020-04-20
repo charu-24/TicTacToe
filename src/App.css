@@ -219,7 +219,7 @@ h1{
    padding:30px 70px 0px 90px;
    font-size:2em
 }
-@media screen and (max-width: 420px)
+@media screen and (max-width: 520px)
 {
  .Img1Style{
    margin-left: 20%;
@@ -228,30 +228,30 @@ h1{
  .modal{
    margin-left: 5%;
    width: 90%;
-   margin-top: -64%;
+   margin-top: -40%;
    height: 450px;
  }
  h1{
    font-size: 1.5em;
-   margin-top: -20%;
+   margin-top: -10px;
  }
   .close{
-    margin-top:20%;
-    margin-left: 30%;
+    margin-top:20px;
+    margin-left: 40%;
   }
 }
 
 
-@media screen and (min-width: 430px) and (max-width: 1024px){
+@media screen and (min-width: 525px) and (max-width: 1024px){
   .Img1Style{
     margin-left: 15%;
     width: 70%
   }
   .modal{
-    margin-top: -45%;
+    margin-top: -25%;
   }
   .overlapDiv2, .formS{
-    height: 600px;
+    height: 10vhpx;
   }
    
   
