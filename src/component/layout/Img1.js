@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Img1() {
-    return (
-        <div className="Img1Style">
-            <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 1</h1>
-            
-            
-                 <div style={fontStyle}><i className="fa fa-user"></i></div>
-            
-            
-            <form>
-                <input type="text" placeholder="Name" className="inputStyle"/>
+export class Img1 extends Component {
+    
+    render()
+    {
+        console.log(this.props.player1)
+        
+        return (
+            <div className="Img1Style">
                 
-               
-               <button style={buttonStyle}>Done!</button>
-            </form>
-        </div>
-    )
+                
+                <hr className="HR1" size="5" color="#0f2862" borderRadius="10px"></hr>
+                <hr className="HR1" size="5" color="#0f2862"></hr>
+                <div className="VR1"></div>
+                <div className="VR2"></div>
+                 
+            </div>
+        )
+    }
 }
 
 const nameStyle ={

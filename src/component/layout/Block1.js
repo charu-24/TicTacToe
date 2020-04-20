@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import {Button, ButtonToolbar} from 'react-bootstrap'
+import { AddName } from './AddName'
+export class Block1 extends Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            addModalShow : false
+            
+        }
+    }
+    
+    render(){
+        
+       let addModalClose = () => this.setState({addModalShow: false})
+       console.log(this.state.addModalShow) 
+        return (
+            
+            <div> 
+                <ButtonToolbar>
+                <Button className="block1Style" onClick={() => this.setState({addModalShow: true})}>
+                <h1 style={{textAlign:"center",padding:"2vh", color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play with Me?</h1>
+                </Button>
+                < AddName show={this.state.addModalShow} onHide={addModalClose} />
 
-export default function Block1() {
-    return (
-        <div className="block1Style">
-            <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 1</h1>
-            <form>
-                <input type="text" placeholder="Name" style={nameStyle}/>
-                
-               <select id="gender" name="genders" placeholder="Gender" className="optionStyle">
-                   <option className="optionStyle"value="female">Female</option>
-                   <option value="male">
-                       Male
-                   </option>
-               </select>
-               <button style={buttonStyle}>Done!</button>
-            </form>
-        </div>
-    )
+                </ButtonToolbar> 
+                <ButtonToolbar>
+                <Button className="block1Style" >
+                <h1 style={{textAlign:"center",padding:"2vh",color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play with Me?</h1>
+                </Button>
+               
+
+                </ButtonToolbar>
+
+           </div>
+        
+        )
+    }
 }
-
 const nameStyle ={
     marginTop: "20%",
     marginLeft: "5%",

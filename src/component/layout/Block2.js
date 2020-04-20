@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Block2() {
-    return (
-        <div className="block2Style">
+export class Block2 extends Component{
+   
+    render(){
+        return(
+            <div className="block2Style">
             <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
-            <form>
-                <input type="text" placeholder="Name" style={nameStyle}/>
+            <form >
+                <input type="text" placeholder="Name" style={nameStyle} />
                 
                <select id="gender" name="genders" placeholder="Gender" className="optionStyle">
                    <option className="optionStyle" value="female">Female</option>
@@ -17,6 +19,9 @@ export default function Block2() {
             </form>
         </div>
     )
+        
+    }
+    
 }
 const nameStyle ={
     marginTop: "20%",

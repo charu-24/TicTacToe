@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Img2() {
-    return (
-        <div className="Img2Style">
-            <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
-            <div style={fontStyle}><i className="fa fa-user"></i></div>
-            <form>
-                <input type="text" placeholder="Name" className="inputStyle"/>
-                
-               
-               <button style={buttonStyle}>Done!</button>
-            </form>
-        </div>
-    )
+export class Img2 extends Component {
+    render()
+    {
+        return (
+            <div className="Img2Style">
+                <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
+                <div style={fontStyle}><i className="fa fa-user"></i></div>
+                <form>
+                    <input type="text" placeholder="Name" className="inputStyle"/>
+                    
+                   
+                   <button style={buttonStyle}>Done!</button>
+                </form>
+            </div>
+        )
+    }
 }
 const nameStyle ={
     marginTop: "20%",
