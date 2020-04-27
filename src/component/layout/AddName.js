@@ -8,13 +8,12 @@ export class AddName extends Component{
     constructor(props){
         super(props);
         this.state = {
-          name: "",
+          name: '',
           isDiv1Visible: true,
           isDiv2Visible: false,
           isX: '',
-          isO: ''
+          isO: '',
         }
-    
     }
 
     onChange = (e) => this.setState({name: e.target.value})
@@ -22,13 +21,15 @@ export class AddName extends Component{
 
     onSubmit = (e) =>{
       e.preventDefault();
-      console.log(this.state.name)
+      this.props.addNmae(this.state.name);
+     
     }
 
-    render(){
-        console.log(this.state.isO, this.state.isX)
+    render() {
+        
         return(
-            <Modal
+            <div>
+              <Modal
       {...this.props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -46,7 +47,7 @@ export class AddName extends Component{
             
             
           </form>
-          <button onClick={this.onSubmit , () => this.setState({isDiv1Visible:false,isDiv2Visible:true})} className="close">Done</button>
+          <button onClick={this.onSubmit, () => this.setState({isDiv1Visible:false,isDiv2Visible:true})} className="close">Done</button>
         </div >
         
         <div className={this.state.isDiv2Visible ? "formS": "overlapDiv2"}>
@@ -68,6 +69,8 @@ export class AddName extends Component{
       
       </div>
     </Modal>
+            
+            </div>
         )
     }
 }

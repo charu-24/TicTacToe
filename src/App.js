@@ -7,28 +7,26 @@ import { BrowserRouter as Router, Route, Link} from
 import { Block1 } from './component/layout/Block1'
 
 
-import { Decider } from './component/pages/Decider'
+
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import { Img1 } from './component/layout/Img1';
-import { Img2 } from './component/layout/Img2';
+import { Game } from './component/layout/Game';
 import { Between } from './component/layout/Between';
 import props from 'prop-types';
 import './App.css';
 
 class App extends Component {
   state={
-    player1 : "",
-    player2 : ""
+    name:""
 
   }
   var 
 
-  addPlayer1 = (player1) => {
-    const p = player1
-    this.state.player1 = p
-    console.log(this.state.player1)
-  }
-  
+  addNmae = (name) =>
+    {
+        this.setState({name:name})
+        
+    }
   
   render(){
     
@@ -39,11 +37,10 @@ class App extends Component {
           Tictactoe
         </header>
         <Route exact path="/" render={props => (  
-            <Block1 />
+            <Block1 addNmae={this.addNmae.bind(this)} name1={this.state.name} />
+            
            )} />
-        <Route exact path="/about" render={props => (
-            <Img1 />
-        )}  
+        <Route exact path="/about" component={Game} 
         />
       </div>
       </Router>

@@ -7,9 +7,14 @@ export class Block1 extends Component {
     constructor(props){
         super(props);
         this.state = {
-            addModalShow : false
-            
+            addModalShow : false,
+            name: ""
         }
+    }
+    addNmae = (name) =>
+    {
+        this.setState({name: name})
+        
     }
     
     render(){
@@ -23,7 +28,7 @@ export class Block1 extends Component {
                 <Button className="block1Style" onClick={() => this.setState({addModalShow: true})}>
                 <h1 style={{textAlign:"center",padding:"2vh", color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play with Me?</h1>
                 </Button>
-                < AddName show={this.state.addModalShow} onHide={addModalClose} />
+                < AddName show={this.state.addModalShow} onHide={addModalClose} addNmae={this.addNmae} />
 
                 </ButtonToolbar> 
                 <ButtonToolbar>

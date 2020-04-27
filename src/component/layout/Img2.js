@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
+import { props } from 'prop-types'
 
 export class Img2 extends Component {
+    constructor(props){
+        super(props);
+    }
     render()
     {
         return (
-            <div className="Img2Style">
-                <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
-                <div style={fontStyle}><i className="fa fa-user"></i></div>
-                <form>
-                    <input type="text" placeholder="Name" className="inputStyle"/>
-                    
-                   
-                   <button style={buttonStyle}>Done!</button>
-                </form>
-            </div>
+            <button className="square" onClick={this.props.onClick}>
+                {this.props.value}
+            </button>
         )
     }
 }
