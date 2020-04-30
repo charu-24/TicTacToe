@@ -1,47 +1,44 @@
 import React ,{ Component } from 'react';
-
-import { BrowserRouter as Router, Route, Link} from
+import { BrowserRouter as Router, Route} from
 'react-router-dom';
-
-
 import { Block1 } from './component/layout/Block1'
-
-
-
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-import { Img1 } from './component/layout/Img1';
 import { Game } from './component/layout/Game';
-import { Between } from './component/layout/Between';
-import props from 'prop-types';
 import './App.css';
+import { props } from 'prop-types';
 
 class App extends Component {
-  state={
-    name:""
-
+  state= {
+    name:''
   }
-  var 
 
-  addNmae = (name) =>
-    {
-        this.setState({name:name})
+  addNmae = (name1) => this.setState({name:name1})
         
-    }
-  
   render(){
+    console.log()
     
     return (
       <Router>
       <div className="App">
       <header className="App-header">
           Tictactoe
-        </header>
-        <Route exact path="/" render={props => (  
-            <Block1 addNmae={this.addNmae.bind(this)} name1={this.state.name} />
+      </header>
+      <Route exact path="/" render={props => 
+        (  
+          <Block1 
+            addNmae={this.addNmae.bind(this)} 
+            name1={this.state.name} 
+          />
             
-           )} />
-        <Route exact path="/about" component={Game} 
-        />
+        )} 
+      />
+      <Route exact path="/about" render={props =>
+        (
+         <Game 
+            name1={this.state.name}
+         />
+        )}
+      />
       </div>
       </Router>
     );

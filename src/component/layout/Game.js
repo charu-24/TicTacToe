@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Img1 } from './Img1'
+
 export class Game extends Component {
 constructor(props){
     super(props);
@@ -35,11 +36,12 @@ constructor(props){
 
 
     render() {
+        console.log(this.props.name1)
         const history = this.state.history;
         const current = history[this.state.stepNum];
         const winner = getWinner(current.squares);
         const moves =history.map((step, move)=>{
-            const disc = move? "": "Start the game";
+            
             return(
                 <h1 key={move}>
 
@@ -51,8 +53,8 @@ constructor(props){
             status = "winner is " + winner;
 
         }
-        else{
-            status="Next Player is" +(this.xIsNext? 'X':'O');
+        else if(this.state.stepNum===9){
+            status="Game is tie"
         }
         return (
             <div className="game">
@@ -61,8 +63,12 @@ constructor(props){
                     squares={current.squares} />
 
                 </div>
-                <div className="game-info">
-                    <div>{status}</div>
+                <div className={winner || this.state.stepNum===9? "game-info" : ""}>
+                    <div className={true? "winnerDiv": ""} >
+                        <h1>
+                            {status} ,{this.props.name1}
+                        </h1>                   
+                    </div>
                     <div>{moves}</div>
                 </div>
                 

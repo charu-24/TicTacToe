@@ -1,40 +1,49 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+
 import {Button, ButtonToolbar} from 'react-bootstrap'
-import { AddName } from './AddName'
+import { AddName } from './AddName';
+import { Block2 } from './Block2'
 export class Block1 extends Component {
     
     constructor(props){
         super(props);
         this.state = {
             addModalShow : false,
-            name: ""
+            addModalShow2 :false,
+            name1: "dd"
         }
     }
-    addNmae = (name) =>
-    {
-        this.setState({name: name})
-        
-    }
+    addName = (name)=> 
+        this.setState({name1:name})
+    
     
     render(){
         
        let addModalClose = () => this.setState({addModalShow: false})
-       console.log(this.state.addModalShow) 
+       console.log(this.state.addModalShow,this.state.name) 
         return (
             
             <div> 
                 <ButtonToolbar>
-                <Button className="block1Style" onClick={() => this.setState({addModalShow: true})}>
-                <h1 style={{textAlign:"center",padding:"2vh", color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play with Me?</h1>
+                <Button className="block1Style" onClick={() => this.setState({addModalShow: true})} >
+                <h1 style={{textAlign:"center",padding:"2vh", color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play Your Friend?</h1>
                 </Button>
-                < AddName show={this.state.addModalShow} onHide={addModalClose} addNmae={this.addNmae} />
+                < AddName 
+                 show={this.state.addModalShow} 
+                 onHide={addModalClose}
+                 addNmae={this.props.addNmae.bind(this)} 
+                 name1={this.state.name}
+                />
 
                 </ButtonToolbar> 
                 <ButtonToolbar>
-                <Button className="block1Style" >
+                <Button className="block1Style" onClick={() => this.setState({addModalShow2: true})}>
                 <h1 style={{textAlign:"center",padding:"2vh",color:"black", fontSize:"2em",marginTop:"0PX" }} >Wanna Play with Me?</h1>
                 </Button>
+                <Block2 
+                    show={this.state.addModalShow2} 
+                    onHide={addModalClose}
+                />
                
 
                 </ButtonToolbar>
@@ -44,39 +53,4 @@ export class Block1 extends Component {
         )
     }
 }
-const nameStyle ={
-    marginTop: "20%",
-    marginLeft: "5%",
-    fontSize: "1.09em",
-    backgroundColor: "rgba(10,10,10,0.5)",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px #0f2862",
-    height: "30px",
-    color:"black"
-    
-}
-const optionStyle = {
-    marginTop: "10%",
-    width: "220px",
 
-    marginLeft: "5%",
-    fontSize: "1.09em",
-    backgroundColor: "rgba(10,10,10,0.5)",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px #0f2862",
-    height: "30px",
-    color:"black"
-}
-const buttonStyle = {
-    marginTop:"20%",
-    marginLeft: "35%",
-    width : "80px",
-    height : "30px",
-    fontSize:" 1em",
-    backgroundColor:"#0f2862",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px black",
-    borderRadius: "10px",
-    color: " #1c77ac"
-
-}

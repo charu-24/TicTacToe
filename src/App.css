@@ -41,7 +41,7 @@ body{
   float: left;
   
 }
-.Img1Style{
+/* .Img1Style{
   background-color: #ffa800;
   width : 300px;
   height: 350px;
@@ -54,7 +54,8 @@ body{
   border-radius: 20px;
   z-index: 1;
   
-}
+} */
+
 .Img2Style{
   background-color: #ffa800;
   width : 250px;
@@ -227,7 +228,7 @@ h1{
 }
 .board1{
   margin-left: 10%;
-  width: 24%;
+  width: 100%;
   height: 70px;
   margin-top: 30px;
   font-size: 2em;
@@ -236,7 +237,7 @@ h1{
 }
 .board2{
   margin-left: 3%;
-  width: 27%;
+  width: 100%;
   height: 70px;
   background-color: #ffa800;
   border:none;
@@ -245,7 +246,7 @@ h1{
 }
 .board3{
   margin-left: 3%;
-  width: 23%;
+  width: 100%;
   height: 70px;
   font-size: 2em;
   border:none;
@@ -262,12 +263,20 @@ h1{
   height: 90px;
 }
 .square{
-  width:50px;
-  height:50px;
-  background-color: #0f2862;
-  color:#1c77ac;
-  font-size: 2em;
+  
+  width:90px;
+  height:90px;
+  background-color: #ffa800;
+  color:#0f2862;
+  font-size: 3em;
   text-align: center;
+  float: left;
+  border:none;
+  box-shadow: 2px 2px 15px black;
+  font-weight: bold;
+  padding: 10px;
+  left:2%
+
 }
 .square:focus{
   outline: none;
@@ -279,15 +288,70 @@ h1{
   
 }
 .game{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top:30%;
+  left:38%;
+  
+  
   display: flex;
   flex-direction: row;
   margin: 0,auto;
 }
-@media screen and (max-width: 520px)
+.game-board{
+  width:400px;
+  height: 100px;
+}
+.game-info{
+  position: relative;
+  background-color: rgba(0,0,0,0.8);
+  top:-20%;
+  left: -50%;
+  width:800px;
+  height: 50vh;
+  box-shadow: 2px 2px 10px #ffa800;
+  text-align: center;
+}
+.winnerDiv{
+  
+ 
+  width:200px;
+ 
+  font-weight: bold;
+}
+.col-md-6{
+  
+  width:50%;
+  height:200px;
+  
+  float:left;
+ 
+  text-align: center;
+}
+#random{
+  content:'';
+  animation: changetext 10s infinite linear;
+  -webkit-animation: changetext 10s infinite linear;
+  color:#ffa800;
+
+
+}
+@keyframes explosion { 
+  @for $i from 1 through 10 {
+    $number: $i * 10;
+    $percent: $number + "%";
+    #{$percent} {
+      content: $i + "";
+      color: white;
+      font-size: $i * 20px;
+    }
+  }
+}
+@media screen and (max-width : 375px){
+  .game{
+    left: 45px;
+  }
+}
+@media screen and (min-width:400px) and (max-width: 520px)
 {
  .Img1Style{
    margin-left: 20%;
@@ -307,6 +371,13 @@ h1{
     margin-top:20px;
     margin-left: 40%;
   }
+  .square{
+    width:80px;
+    height: 70px;
+  }
+  .game{
+    left:0%
+  }
 }
 
 
@@ -324,7 +395,14 @@ h1{
     margin-top: 50px;
     height: 450px;
   }
-   
+  .game{
+    left:25%;
+    top:25%
+  } 
+  .square{
+    width: 80px;
+    height: 80px;
+  }
   
  
 

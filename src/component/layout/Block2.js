@@ -1,61 +1,79 @@
 import React, { Component } from 'react'
+import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { props } from 'prop-types'
+
 
 export class Block2 extends Component{
-   
-    render(){
-        return(
-            <div className="block2Style">
-            <h1 style={{textAlign:"center", textDecoration:"underline",}} >Player 2</h1>
-            <form >
-                <input type="text" placeholder="Name" style={nameStyle} />
-                
-               <select id="gender" name="genders" placeholder="Gender" className="optionStyle">
-                   <option className="optionStyle" value="female">Female</option>
-                   <option value="male">
-                       Male
-                   </option>
-               </select>
-               <button style={buttonStyle}>Done!</button>
-            </form>
-        </div>
-    )
-        
+    constructor(props){
+      super(props);
+      this.state = {
+          name: this.props.name1,
+          isDiv1Visible: true,
+          isDiv2Visible: false,
+          isX: '',
+          isO: '',
+      }
     }
+    onChange = (e) => this.setState({name: e.target.value})
     
-}
-const nameStyle ={
-    marginTop: "20%",
-    marginLeft: "5%",
-    fontSize: "1.09em",
-    backgroundColor: "rgba(10,10,10,0.5)",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px #0f2862",
-    height: "30px",
-    color:"black"
-    
-}
-const optionStyle = {
-    marginTop: "10%",
-    width: "220px",
 
-    marginLeft: "5%",
-    fontSize: "1.09em",
-    backgroundColor: "rgba(10,10,10,0.5)",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px #0f2862",
-    height: "30px",
-    color:"black"
-}
-const buttonStyle = {
-    marginTop:"20%",
-    marginLeft: "35%",
-    width : "80px",
-    height : "30px",
-    fontSize:" 1em",
-    backgroundColor:"#0f2862",
-    border: "2px solid black",
-    boxShadow:"1px 2px 5px black",
-    borderRadius: "10px",
-    color: " #1c77ac"
+    onSubmit = (e) =>{
+      e.preventDefault();
+      this.props.addNmae(this.state.name);
+      this.setState({name:""})
+      
+     
+    }
 
+    render() {
+        console.log(this.state.name)
+        return(
+            <div>
+              <Modal
+      {...this.props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered className="modal"
+    >
+      <div className="innerModal">
+      
+      <Modal.Body >
+        <div className={ this.state.isDiv1Visible ? "formS": "overlapDiv2"}>
+          <h1>Your Name??</h1>
+        <form onSubmit={this.onSubmit.bind(this)}>
+            <input type="text" style={{ width:"40%", height:"30px", fontSize:"1.5em",backgroundColor:"#1c77ac",border:"none", color:"black"}}
+            value={this.state.name} onChange={this.onChange} 
+            placeholder="name"/>
+            
+            
+          </form>
+          <button onClick={this.onSubmit,  () => this.setState({isDiv1Visible:false,isDiv2Visible:true})} className="close">Done</button>
+        </div >
+        
+        <div className={this.state.isDiv2Visible ? "formS": "overlapDiv2"}>
+        <h1 >Hey {this.state.name} which one u would choose??</h1>
+          <button className="x" onClick={ () => this.setState({isX: true,isO:false}) }>X</button>
+          <button className="o" onClick={() => this.setState({isO:true, isX:false})}>O</button>
+          <div style={(this.state.isX=== true || this.state.isO=== true)? {display: "block"} : {display: "none"}}>
+        <h1>Ok, {this.state.name} your chance will be first </h1>
+          <Link to="/about">
+          <button className={"letButton"}>Let's Begin</button>
+          
+          </Link>
+          </div>
+        </div>
+
+      </Modal.Body>
+      
+        
+      
+      </div>
+    </Modal>
+            
+            </div>
+        )
+    }
 }
+
+
